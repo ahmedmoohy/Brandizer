@@ -4,10 +4,12 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 20px;
+    transition: background-color 0.5s ease;
 }
 
 header {
     margin-bottom: 30px;
+    animation: fadeInDown 1s ease-out;
 }
 
 button {
@@ -15,8 +17,17 @@ button {
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+button:hover {
+    background-color: #0056b3;
 }
 
+/* تأثير لظهور المنتجات */
 .product {
     display: inline-block;
     width: 150px;
@@ -25,9 +36,48 @@ button {
     border: 1px solid #ddd;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+    animation-delay: calc(0.05s * var(--delay));
+    transition: transform 0.3s ease;
 }
 
 .product img {
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* تأثير على الصورة عند المرور بالماوس */
+.product:hover img {
+    transform: scale(1.1);
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+/* أنميشن دخول عنوان الصفحة */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* أنميشن ظهور المنتجات */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
