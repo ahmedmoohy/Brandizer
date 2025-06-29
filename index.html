@@ -2,36 +2,47 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>متجر الملابس الاحترافي</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss @2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js "></script>
+  <script src="js/aos.js"></script>
+  <script src="js/script.js" defer></script>
 </head>
 <body class="loading">
 
 <!-- Loader -->
-<div class="loader">
-  <div class="logo-animation">👗</div>
-  <p>جارٍ تحميل المتجر...</p>
+<div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+  <div class="text-6xl text-gray-800 animate-bounce">👗</div>
+  <p class="mt-4 text-lg font-bold text-gray-600">جارٍ تحميل المتجر...</p>
 </div>
 
 <!-- Sidebar -->
-<aside id="sidebar">
-  <h2>البراندات</h2>
-  <div id="alphabet"></div>
-  <ul id="brandsList"></ul>
-  <button onclick="toggleLang()" id="langToggle">English</button>
+<aside id="sidebar" class="fixed top-0 left-0 h-screen w-64 bg-gray-900 text-white transition-transform transform -translate-x-full md:translate-x-0 z-40">
+  <h2 class="text-2xl font-bold text-center py-6 border-b border-gray-700">البراندات</h2>
+  <div id="alphabet" class="flex flex-wrap justify-center gap-2 p-4">
+    <!-- سيتم إنشاء الحروف الأبجدية هنا -->
+  </div>
+  <ul id="brandsList" class="px-4">
+    <!-- سيتم تعبئة البراندات هنا -->
+  </ul>
+  <button onclick="toggleLang()" class="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-center mt-auto">English</button>
 </aside>
 
 <!-- Main Content -->
-<main>
-  <header>
-    <button id="toggleSidebar">☰</button>
-    <h1>مرحبًا بكم في متجر الملابس</h1>
+<main class="ml-0 md:ml-64 transition-all duration-300">
+  <header class="bg-gray-800 text-white py-4 px-6 flex items-center">
+    <button id="toggleSidebar" class="mr-4 text-2xl focus:outline-none">☰</button>
+    <h1 class="text-2xl font-bold">متجر الملابس</h1>
   </header>
-  <section class="intro">
-    <p>اختر براند من القائمة الجانبية لرؤية المنتجات.</p>
+  <section class="p-6">
+    <h2 class="text-3xl font-bold mb-6 text-center">اختر براند لعرض المنتجات</h2>
+    <div id="products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- سيتم توليد المنتجات هنا -->
+    </div>
   </section>
 </main>
 
-<script src="js/script.js"></script>
 </body>
 </html>
