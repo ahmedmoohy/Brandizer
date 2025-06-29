@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>متجر الملابس</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>متجر الملابس</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
-<body>
+<body class="loading">
 
-<header>
-    <h1>مرحباً بكم في متجر الملابس</h1>
-    <button onclick="toggleLang()">English</button>
-</header>
+<div class="loader">
+  <span class="circle"></span>
+  <span class="circle"></span>
+  <span class="circle"></span>
+</div>
 
-<main id="products">
+<!-- Sidebar -->
+<aside id="sidebar">
+  <h2>البراندات</h2>
+  <div id="alphabet">
+    <!-- سيتم إنشاء الحروف الأبجدية هنا -->
+  </div>
+  <ul id="brandsList">
+    <!-- سيتم تعبئة البراندات هنا -->
+  </ul>
+</aside>
 
-    <!-- سيتم توليد المنتجات هنا -->
-    
+<!-- Main Content -->
+<main>
+  <header>
+    <button id="toggleSidebar">☰</button>
+    <h1>مرحبًا بكم في متجر الملابس</h1>
+  </header>
+  <p>اختر براند من الشريط الجانبي لرؤية المنتجات.</p>
 </main>
 
 </body>
