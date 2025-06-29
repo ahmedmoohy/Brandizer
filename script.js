@@ -1,9 +1,10 @@
 const productsContainer = document.getElementById("products");
 
-// إنشاء 100 منتج كمثال
+// إنشاء 100 منتج كمثال مع تأخير في الظهور
 for (let i = 1; i <= 100; i++) {
     const productDiv = document.createElement("div");
     productDiv.className = "product";
+    productDiv.style.setProperty('--delay', i); // استخدام المتغير --delay في CSS
     productDiv.innerHTML = `
         <img src="${i}.jpg" alt="منتج ${i}">
         <p>منتج رقم ${i}</p>
