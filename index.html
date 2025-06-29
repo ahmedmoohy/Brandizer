@@ -2,27 +2,23 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>متجر الملابس</title>
+  <title>متجر الملابس الاحترافي</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
 </head>
 <body class="loading">
 
+<!-- Loader -->
 <div class="loader">
-  <span class="circle"></span>
-  <span class="circle"></span>
-  <span class="circle"></span>
+  <div class="logo-animation">👗</div>
+  <p>جارٍ تحميل المتجر...</p>
 </div>
 
 <!-- Sidebar -->
 <aside id="sidebar">
   <h2>البراندات</h2>
-  <div id="alphabet">
-    <!-- سيتم إنشاء الحروف الأبجدية هنا -->
-  </div>
-  <ul id="brandsList">
-    <!-- سيتم تعبئة البراندات هنا -->
-  </ul>
+  <div id="alphabet"></div>
+  <ul id="brandsList"></ul>
+  <button onclick="toggleLang()" id="langToggle">English</button>
 </aside>
 
 <!-- Main Content -->
@@ -31,8 +27,11 @@
     <button id="toggleSidebar">☰</button>
     <h1>مرحبًا بكم في متجر الملابس</h1>
   </header>
-  <p>اختر براند من الشريط الجانبي لرؤية المنتجات.</p>
+  <section class="intro">
+    <p>اختر براند من القائمة الجانبية لرؤية المنتجات.</p>
+  </section>
 </main>
 
+<script src="js/script.js"></script>
 </body>
 </html>
