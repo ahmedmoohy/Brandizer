@@ -1,30 +1,49 @@
-const productsContainer = document.getElementById("products");
+// توليد الحروف الأبجدية
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const alphabetDiv = document.getElementById("alphabet");
 
-// إنشاء 100 منتج كمثال مع تأخير في الظهور
-for (let i = 1; i <= 100; i++) {
-    const productDiv = document.createElement("div");
-    productDiv.className = "product";
-    productDiv.style.setProperty('--delay', i); // استخدام المتغير --delay في CSS
-    productDiv.innerHTML = `
-        <img src="${i}.jpg" alt="منتج ${i}">
-        <p>منتج رقم ${i}</p>
-        <p>$${(Math.random() * 100).toFixed(2)}</p>
-    `;
-    productsContainer.appendChild(productDiv);
+for (let char of alphabet) {
+  const span = document.createElement("span");
+  span.className = "alphabet-letter";
+  span.textContent = char;
+  span.addEventListener("click", () => filterBrands(char));
+  alphabetDiv.appendChild(span);
 }
 
-// تبديل اللغة بين العربي والإنجليزي
-function toggleLang() {
-    const html = document.documentElement;
-    if (html.getAttribute("lang") === "ar") {
-        html.setAttribute("lang", "en");
-        html.setAttribute("dir", "ltr");
-        document.querySelector("h1").textContent = "Welcome to the Clothing Store";
-        document.querySelector("button").textContent = "Arabic";
-    } else {
-        html.setAttribute("lang", "ar");
-        html.setAttribute("dir", "rtl");
-        document.querySelector("h1").textContent = "مرحباً بكم في متجر الملابس";
-        document.querySelector("button").textContent = "English";
-    }
+// توليد قائمة البراندات
+const brands = [
+  "نَايكي", "أديداس", "بانا ريبابليك", "هندريكس", "زارا",
+  "إتش أند إم", "كالفن كلاين", "جوردان", "فِرتيست", "غوكو"
+].sort();
+
+const brandsList = document.getElementById("brandsList");
+
+brands.forEach(brand => {
+  const li = document.createElement("li");
+  li.textContent = brand;
+  li.addEventListener("click", () => {
+    alert(`انتقل إلى صفحة ${brand}`);
+    // يمكنك استبدال هذا بـ window.location.href = `pages/brand-${brand}.html`;
+  });
+  brandsList.appendChild(li);
+});
+
+// تصفية البراندات حسب الحرف
+function filterBrands(letter) {
+  const filtered = brands.filter(b => b.charAt(0).toUpperCase() === letter);
+  brandsList.innerHTML = "";
+  if (filtered.length === 0) {
+    brandsList.innerHTML = "<p>لا يوجد براندات بهذا الحرف</p>";
+  } else {
+    filtered.forEach(brand => {
+      const li = document.createElement("li");
+      li.textContent = brand;
+      brandsList.appendChild(li);
+    });
+  }
 }
+
+// Toggle Sidebar
+document.getElementById("toggleSidebar").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.toggle("closed");
+});
