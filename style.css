@@ -1,118 +1,35 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Remove Loader After Loading */
+.loading #loader {
+  display: none;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  min-height: 100vh;
-  background: #f4f4f4;
-  color: #333;
-  transition: all 0.5s ease;
+/* Sidebar Toggle */
+#sidebar.closed {
+  transform: translateX(-100%);
 }
 
-/* Loader Animation */
-.loading {
+/* Product Hover Effect */
+#products .product {
+  position: relative;
   overflow: hidden;
 }
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeOut 2s forwards 3s;
-}
-.circle {
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
-  background: #007bff;
-  border-radius: 50%;
-  animation: bounce 1s infinite alternate;
-}
-.circle:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.circle:nth-child(3) {
-  animation-delay: 0.4s;
-}
-@keyframes bounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-15px); }
-}
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
-}
-
-/* Sidebar */
-#sidebar {
-  width: 250px;
-  background: #1a1a1a;
-  color: white;
-  padding: 20px;
+#products .product img {
   transition: transform 0.3s ease;
 }
-#sidebar h2 {
-  margin-bottom: 20px;
-  text-align: center;
+#products .product:hover img {
+  transform: scale(1.1);
 }
-#alphabet {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 20px;
-}
-.alphabet-letter {
-  padding: 5px 10px;
-  background: #333;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.alphabet-letter:hover {
-  background: #007bff;
-}
-
-#brandsList {
-  list-style: none;
-}
-#brandsList li {
-  padding: 10px;
-  margin-bottom: 5px;
-  background: #2c2c2c;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-#brandsList li:hover {
-  background: #007bff;
-}
-
-/* Main Content */
-main {
-  flex: 1;
-  padding: 40px;
-}
-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-#toggleSidebar {
-  margin-left: 15px;
-  padding: 10px;
-  background: #007bff;
+#products .product .details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+#products .product:hover .details {
+  transform: translateY(0);
 }
